@@ -21,10 +21,11 @@ namespace UDPCross
             Socket s = new Socket(AddressFamily.InterNetwork, SocketType.Dgram,
             ProtocolType.Udp);
 
-            IPAddress broadcast = IPAddress.Parse("192.168.1.109");
+            IPAddress broadcast = IPAddress.Parse(IP.Text);
 
-            byte[] sendbuf = Encoding.ASCII.GetBytes("oi");
-            IPEndPoint ep = new IPEndPoint(broadcast, 1234);
+            byte[] sendbuf = Encoding.ASCII.GetBytes(Comando.Text);
+
+            IPEndPoint ep = new IPEndPoint(broadcast, int.Parse(Porta.Text));
 
             s.SendTo(sendbuf, ep);
 

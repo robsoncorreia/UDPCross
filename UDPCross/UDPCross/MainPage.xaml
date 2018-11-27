@@ -4,12 +4,13 @@
              xmlns:local="clr-namespace:UDPCross"
              x:Class="UDPCross.MainPage">
 
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-        <Button Text="Ligar" Clicked="Button_Clicked"/>
+    <StackLayout 
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Orientation="Vertical">
+        <Editor x:Name="IP" WidthRequest="200" Placeholder="IP" Margin="0,10"/>
+        <Editor x:Name="Comando" WidthRequest="200" Placeholder="Comando" Margin="0,10"/>
+        <Editor x:Name="Porta" WidthRequest="200" Placeholder="Porta" Margin="0,10"/>
+        <Button Text="Ligar / Desliga" Clicked="Button_Clicked" WidthRequest="200"/>
     </StackLayout>
-
 </ContentPage>
