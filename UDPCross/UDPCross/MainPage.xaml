@@ -6,11 +6,18 @@
 
     <StackLayout 
                 HorizontalOptions="Center"
-                VerticalOptions="Center"
+                VerticalOptions="StartAndExpand"
                 Orientation="Vertical">
         <Editor x:Name="IP" WidthRequest="200" Placeholder="IP" Margin="0,10"/>
         <Editor x:Name="Comando" WidthRequest="200" Placeholder="Comando" Margin="0,10"/>
         <Editor x:Name="Porta" WidthRequest="200" Placeholder="Porta" Margin="0,10"/>
-        <Button Text="Ligar / Desliga" Clicked="Button_Clicked" WidthRequest="200"/>
+        <Button Text="Enviar" Clicked="Button_Clicked" WidthRequest="200"/>
+        <ListView x:Name="DevicesUDP">
+            <ListView.ItemTemplate >
+                <DataTemplate >
+                    <TextCell Text="{Binding Path=IP}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </StackLayout>
 </ContentPage>
