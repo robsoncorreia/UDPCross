@@ -5,19 +5,37 @@
              x:Class="UDPCross.MainPage">
 
     <StackLayout 
+                Padding="20"
                 HorizontalOptions="Center"
                 VerticalOptions="StartAndExpand"
                 Orientation="Vertical">
-        <Editor x:Name="IP" WidthRequest="200" Placeholder="IP" Margin="0,10"/>
-        <Editor x:Name="Comando" WidthRequest="200" Placeholder="Comando" Margin="0,10"/>
-        <Editor x:Name="Porta" WidthRequest="200" Placeholder="Porta" Margin="0,10"/>
-        <Button Text="Enviar" Clicked="Button_Clicked" WidthRequest="200"/>
-        <ListView x:Name="DevicesUDP">
-            <ListView.ItemTemplate >
+        <Entry x:Name="IP" WidthRequest="200" Placeholder="IP" Margin="0,10" BindingContext="{x:Reference Name=DevicesUDP}" Text="{Binding Path=SelectedItem.IP}"/>
+        <Entry x:Name="Porta" WidthRequest="200" Placeholder="Porta" Margin="0,10" BindingContext="{x:Reference Name=DevicesUDP}" Text="{Binding Path=SelectedItem.Porta}"/>
+        <Editor x:Name="Comando" WidthRequest="200" Placeholder="Comando" Margin="0,10" HeightRequest="100" BindingContext="{x:Reference Name=DevicesUDP}" Text="{Binding Path=SelectedItem.Comando}"/>
+        <Button Text="Enviar" Clicked="Button_Clicked"/>
+        <ListView x:Name="DevicesUDP" ItemSelected="DevicesUDP_ItemSelected">
+            <ListView.ItemTemplate>
                 <DataTemplate >
-                    <TextCell Text="{Binding Path=IP}" />
+                    <ViewCell>
+                        <StackLayout BackgroundColor="#eee"
+                                     Orientation="Vertical">
+                            <StackLayout Orientation="Vertical"
+                                         Padding="10"
+                                         HorizontalOptions="End"
+                                         >
+                                <Label Text="{Binding IP}" />
+                                <Label Text="{Binding Comando}"
+                                       TextColor="#f35e20"
+                                       HorizontalOptions="EndAndExpand"
+                                       />
+                                <Label Text="{Binding Porta}"
+                                       TextColor="#503026" />
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <Button Text="Limpar" Clicked="Button_Clicked_1"/>
     </StackLayout>
 </ContentPage>

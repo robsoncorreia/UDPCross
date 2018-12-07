@@ -1,8 +1,11 @@
 #include "WiFi.h"
 #include "AsyncUDP.h"
 
-const char * ssid = "Julia";
-const char * password = "julia12032009";
+//const char * ssid = "Flex - Smart Home";
+//const char * password = "julia12032009";
+
+const char * ssid = "Flex - Smart Home";
+const char * password = "84118411841184118411841184";
 int LED_BUILTIN = 2;
 String LIGAR = "LIGAR";
 String DESLIGAR = "DESLIGAR";
