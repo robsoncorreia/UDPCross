@@ -1,11 +1,15 @@
 #include "WiFi.h"
 #include "AsyncUDP.h"
 
-//const char * ssid = "Flex - Smart Home";
-//const char * password = "julia12032009";
+const char * ssid = "Julia";
+const char * password = "julia12032009";
 
-const char * ssid = "Flex - Smart Home";
-const char * password = "84118411841184118411841184";
+//const char * ssid = "Flex - Smart Home";
+//const char * password = "84118411841184118411841184";
+
+//const char * ssid = "VIVO-8CD0";
+//const char * password = "33D7208CD0";
+
 int LED_BUILTIN = 2;
 String LIGAR = "LIGAR";
 String DESLIGAR = "DESLIGAR";
@@ -66,16 +70,13 @@ void setup()
 
       if (responseToString.equalsIgnoreCase(LIGAR)) {
         digitalWrite(LED_BUILTIN, HIGH);
-        packet.printf("Got %u bytes of data", LIGAR);
       }
 
       if (responseToString.equalsIgnoreCase(DESLIGAR)) {
         digitalWrite(LED_BUILTIN, LOW);
-        packet.printf("Got %u bytes of data", DESLIGAR);
       }
       if (responseToString.equalsIgnoreCase(ALTERNAR)) {
         digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));
-        packet.printf("Got %u bytes of data", DESLIGAR);
       }
       //reply to the client
       packet.printf("Got %u bytes of data", packet.localIP());
@@ -86,6 +87,4 @@ void setup()
 void loop()
 {
   delay(1000);
-  //Send broadcast
-  udp.broadcast("Send broadcast");
 }
